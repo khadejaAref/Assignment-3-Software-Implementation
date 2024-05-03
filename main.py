@@ -289,16 +289,16 @@ class CateringCompany(Supplier):
   def set_menu(self, menu):
     self._menu = menu
 
-class CleaningCompany(supplier):
+class CleaningCompany(Supplier):
   pass
 
-class DecorationsCompany(supplier):
+class DecorationsCompany(Supplier):
   pass
 
-class EntertainmentCompany(supplier):
+class EntertainmentCompany(Supplier):
   pass
 
-class FurnitureSupplyCompany(supplier):
+class FurnitureSupplyCompany(Supplier):
   pass
 
 class Venue:
@@ -347,7 +347,7 @@ class Venue:
     self._maxGuests = maxGuests
 
 #test cases
-if __name__ = '__main__':
+if __name__ == '__main__':
   #create employees
   sales_manager1 = SalesManager("Susan Meyers", 47899, "Sales", "Manager", 37500, 35, date(1989, 5, 15), "AB123456")
   sales_manager2 = SalesManager("Joy Rogers", 81774, "Sales", "Manager", 24000, 32, date(1992, 3, 6), "ABC67890")
@@ -355,7 +355,7 @@ if __name__ = '__main__':
   salesperson2 = Salesperson("Salma J Sam", 98637, "Sales", "Salesperson", 20000, 30, date(1994, 2, 25), "EF654321", 15000, sales_manager1)
   salesperson3 = Salesperson("Mariam Khalid", 98394, "Sales", "Salesperson", 20000, 26, date(1998, 12, 7), "DEF54321", 15000, sales_manager2)
   sales_manager1.manages.extend([salesperson1, salesperson2])
-  sales_manager1.manages.extend([salesperson3])
+  sales_manager2.manages.extend([salesperson3])
   
  #create clients
   client1 = Client(1, "Anood Mohammed", "Dalma St", "Anood.Mohammed@gmail.com", 5000)
@@ -367,7 +367,7 @@ if __name__ = '__main__':
 
 #create suppliers
   catering_company = CateringCompany(1, "Sun Catering", "17th St", "Sun.Catering@yahoo.com", ["Menu Item 1", "Menu Item 2"])
-  catering_company = CateringCompany(2, "Luck Catering", "10th St", "Luck.Catering@yahoo.com")
+  cleaning_company = CleaningCompany(2, "Luck Catering", "10th St", "Luck.Catering@yahoo.com")
   decorations_company = DecorationsCompany(3, "Moonlight Decorations", "11th St", "decorations@gmail.com")
   entertainment_company = EntertainmentCompany(4, "Entertainment Co.", "16th St", "entertainment@gmail.com")
   furniture_supply_company = FurnitureSupplyCompany(5, "Cloud Furniture", "12th St", "Cloud.furniture@gmail.com")
