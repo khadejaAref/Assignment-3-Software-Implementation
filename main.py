@@ -345,7 +345,60 @@ class Venue:
 
   def set_maxGuests(self, maxGuests):
     self._maxGuests = maxGuests
+
+#test cases
+if __name__ = '__main__':
+  #create employees
+  sales_manager1 = SalesManager("Susan Meyers", 47899, "Sales", "Manager", 37500, 35, date(1989, 5, 15), "AB123456")
+  sales_manager2 = SalesManager("Joy Rogers", 81774, "Sales", "Manager", 24000, 32, date(1992, 3, 6), "ABC67890")
+  salesperson1 = Salesperson("Shyam Sundar", 11234, "Sales", "Salesperson", 20000, 28, date(1996, 9, 10), "CD987654", 15000, sales_manager1)
+  salesperson2 = Salesperson("Salma J Sam", 98637, "Sales", "Salesperson", 20000, 30, date(1994, 2, 25), "EF654321", 15000, sales_manager1)
+  salesperson3 = Salesperson("Mariam Khalid", 98394, "Sales", "Salesperson", 20000, 26, date(1998, 12, 7), "DEF54321", 15000, sales_manager2)
+  sales_manager1.manages.extend([salesperson1, salesperson2])
+  sales_manager1.manages.extend([salesperson3])
   
+ #create clients
+  client1 = Client(1, "Anood Mohammed", "Dalma St", "Anood.Mohammed@gmail.com", 5000)
+  client2 = Client(2, "Salem Saeed", "Al Mireef St", "Salem.Saeed@yahoo.com", 10000)
+
+#create guests
+  guest1 = Guest(1, "Sara Ali", "Channel St", "Sara.Alid@yahoo.com")
+  guest2 = Guest(2, "Hamad Aref", "Al Maha St", "Hamad.Aref@gmail.com")
+
+#create suppliers
+  catering_company = CateringCompany(1, "Sun Catering", "17th St", "Sun.Catering@yahoo.com", ["Menu Item 1", "Menu Item 2"])
+  catering_company = CateringCompany(2, "Luck Catering", "10th St", "Luck.Catering@yahoo.com")
+  decorations_company = DecorationsCompany(3, "Moonlight Decorations", "11th St", "decorations@gmail.com")
+  entertainment_company = EntertainmentCompany(4, "Entertainment Co.", "16th St", "entertainment@gmail.com")
+  furniture_supply_company = FurnitureSupplyCompany(5, "Cloud Furniture", "12th St", "Cloud.furniture@gmail.com")
+  
+# Create venue
+  venue = Venue(1, "Event Hall", "Al Asayil St", "venue@yahoo.com", 50, 100)
+
+# Create event
+  event = Event(1, "Wedding", "Garden Theme", date(2024, 5, 10), time(18, 0), 4, "Matar Bin Thani St", client1, [guest1, guest2])
+  event.suppliers.extend([catering_company, cleaning_company, decorations_company, entertainment_company, furniture_supply_company])
+
+#print event details
+  print("Event Details: ")
+  print("Event ID: ", event.eventID)
+  print("Event Type:", event.eventType)
+  print("Theme:", event.theme)
+  print("Date:", event.date)
+  print("Time:", event.time)
+  print("Duration:", event.duration)
+  print("Venue Address:", event.venueAddress)
+  print("Client:", event.client.name)
+  print("Guests:")
+  for guest in event.guests:
+    print("-", guest.name)
+  print("Suppliers:")
+  for supplier in event.suppliers:
+    print("-", supplier.name)
+
+            
+
+
 
 
 
