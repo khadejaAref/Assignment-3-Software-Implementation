@@ -1,3 +1,5 @@
+from tkinter import *
+from tkinter import messagebox
 from datetime import date, time
 
 class Employee:
@@ -346,8 +348,70 @@ class Venue:
   def set_maxGuests(self, maxGuests):
     self._maxGuests = maxGuests
 
+class EventManagementApp:
+  def __init__(self, master):
+    self.master = master
+    master.title("Event Management System")
+    
+    self.label = Label(master, text="Welcome to Event Management System")
+    self.label.pack()
+    
+    # Buttons to open different windows for different functionalities
+    self.employee_button = Button(master, text="Employees", command=self.open_employee_window)
+    self.employee_button.pack()
+
+    self.event_button = Button(master, text="Events", command=self.open_event_window)
+    self.event_button.pack()
+
+    self.client_button = Button(master, text="Clients", command=self.open_client_window)
+    self.client_button.pack()
+
+    self.guest_button = Button(master, text="Guests", command=self.open_guest_window)
+    self.guest_button.pack()
+
+    self.supplier_button = Button(master, text="Suppliers", command=self.open_supplier_window)
+    self.supplier_button.pack()
+
+    self.venue_button = Button(master, text="Venues", command=self.open_venue_window)
+    self.venue_button.pack()
+    
+  # Functions to open different windows for each functionality
+  # Add/Delete/Modify/Display employee details
+  def open_employee_window(self):
+    employee_window = Toplevel(self.master)
+    employee_window.title("Employee Management")
+ 
+# Add/Delete/Modify/Display event details 
+  def open_event_window(self):
+    event_window = Toplevel(self.master)
+    event_window.title("Event Management")
+
+# Add/Delete/Modify/Display client details 
+  def open_client_window(self):
+    client_window = Toplevel(self.master)
+    client_window.title("Client Management")
+
+# Add/Delete/Modify/Display guest details 
+  def open_guest_window(self):
+    guest_window = Toplevel(self.master)
+    guest_window.title("Guest Management")
+
+# Add/Delete/Modify/Display supplier details 
+  def open_supplier_window(self):
+    supplier_window = Toplevel(self.master)
+    supplier_window.title("Supplier Management")
+
+# Add/Delete/Modify/Display venue details 
+  def open_venue_window(self):
+    venue_window = Toplevel(self.master)
+    venue_window.title("Venue Management")
+  
+
 #test cases
 if __name__ == '__main__':
+  root = Tk()
+  app = EventManagementApp(root)
+  root.mainloop()
   #create employees
   sales_manager1 = SalesManager("Susan Meyers", 47899, "Sales", "Manager", 37500, 35, date(1989, 5, 15), "AB123456")
   sales_manager2 = SalesManager("Joy Rogers", 81774, "Sales", "Manager", 24000, 32, date(1992, 3, 6), "ABC67890")
